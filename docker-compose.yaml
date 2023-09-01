@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  api:
+    image: node:14-alpine
+    command: node index.js
+    working_dir: /usr/src/app
+    volumes:
+      - ./api:/usr/src/app
+  web:
+    image: node:14-alpine
+    command: tail -F /dev/null
+    working_dir: /usr/src/app
+    volumes:
+      - ./web:/usr/src/app
